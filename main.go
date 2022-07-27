@@ -15,15 +15,11 @@ limitations under the License.
 */
 package main
 
-import (
-	"fmt"
-
-	"github.com/rnemeth90/generator"
-)
+import "github.com/rnemeth90/go-password-generator/cmd"
 
 func main() {
-	// cmd.Execute()
+	cmd.Execute()
 
-	pw, _ := generator.GenerateMemorablePassword()
-	fmt.Println(pw)
+	// pw, _ := generator.GenerateMemorablePassword()
+	// fmt.Println(pw)
 }
