@@ -24,6 +24,6 @@ import (
 func main() {
 	// cmd.Execute()
 
-	pw, _ := generator.GenerateRandomString(10)
+	pw, _ := generator.GeneratePBKDF2()
 	fmt.Println(pw)
 }

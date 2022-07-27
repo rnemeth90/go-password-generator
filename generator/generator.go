@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"log"
 	"math/rand"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -24,8 +25,13 @@ func GenerateRandomString(length int64) (string, error) {
 // GeneratePBCKS5 generates a PBCKS5 compliant password
 func GeneratePBKDF2() (string, error) {
 	log.SetPrefix("GeneratePBKDF2():")
-	var password string
+	var builder strings.Builder
 
+	for i := 0; i <= 4; i++ {
+		builder.WriteString(getRandomWord())
+		number := strconv.Itoa(getRandomNumber())
+		builder.WriteString(number)
+	}
 	// next, we need to build a string
 	// the string should have 5 random words,
 	// separated by 4 random numbers
@@ -37,7 +43,7 @@ func GeneratePBKDF2() (string, error) {
 
 	// generate a password using the PBKDF2 algorithm
 
-	return password, nil
+	return builder.String(), nil
 }
 
 func generatePassword(input int64) (string, error) {
@@ -61,7 +67,7 @@ func generateBytes(input int64) ([]byte, error) {
 func getRandomWord() string {
 
 	rand.Seed(time.Now().Unix())
-
+	var lines []string
 	// set our log prefix
 	log.SetPrefix("getRandomWord(): ")
 
@@ -72,7 +78,7 @@ func getRandomWord() string {
 	}
 
 	// split the []byte into []string
-	lines := strings.Split(string(words), "\n")
+	lines = strings.Split(string(words), "\n")
 
 	// get a random number, max len(lines)
 	n := rand.Intn(len(lines))
@@ -87,7 +93,7 @@ func getRandomNumber() int {
 
 	rand.Seed(time.Now().Unix())
 	// generate a random number and return it
-	n := rand.Int()
+	n := rand.Intn(10)
 
 	return n
 }
