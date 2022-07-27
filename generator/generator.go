@@ -23,10 +23,10 @@ func GenerateRandomString(length int64) (string, error) {
 }
 
 // GeneratePBCKS5 generates a PBCKS5 compliant password
-func GeneratePBKDF2() (string, error) {
+func GenerateMemorablePassword() (string, error) {
 	// example: trilogy3lectured5chubbiness1toads9breaths
 	rand.Seed(time.Now().Unix())
-	log.SetPrefix("GeneratePBKDF2():")
+	log.SetPrefix("GenerateMemorablePassword():")
 
 	var builder strings.Builder
 

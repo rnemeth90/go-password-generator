@@ -24,6 +24,6 @@ import (
 func main() {
 	// cmd.Execute()
 
-	pw, _ := generator.GeneratePBKDF2()
+	pw, _ := generator.GenerateMemorablePassword()
 	fmt.Println(pw)
 }
