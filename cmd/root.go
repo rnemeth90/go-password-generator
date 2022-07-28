@@ -36,11 +36,25 @@ var rootCmd = &cobra.Command{
 
 var generateMemorablePasswordCmd = &cobra.Command{
 	Use:     "generateMemorablePassword",
-	Aliases: []string{"genmem"},
+	Aliases: []string{"memorable"},
 	Short:   "Generates a memorable password",
 	// Args:    cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		p, e := generator.GenerateMemorablePassword()
+		if e != nil {
+			log.Fatal(e)
+		}
+		fmt.Println(p)
+	},
+}
+
+var generateRandomCharPasswordCmd = &cobra.Command{
+	Use:     "generateMemorablePassword",
+	Aliases: []string{"random"},
+	Short:   "Generates a memorable password",
+	// Args:    cobra.ExactArgs(1),
+	Run: func(cmd *cobra.Command, args []string) {
+		p, e := generator.GenerateRandomString(16)
 		if e != nil {
 			log.Fatal(e)
 		}
@@ -66,6 +80,7 @@ func init() {
 
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
-	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	// rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 	rootCmd.AddCommand(generateMemorablePasswordCmd)
+	rootCmd.AddCommand(generateRandomCharPasswordCmd)
 }

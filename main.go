@@ -19,7 +19,4 @@ import "github.com/rnemeth90/go-password-generator/cmd"
 
 func main() {
 	cmd.Execute()
-
-	// pw, _ := generator.GenerateMemorablePassword()
-	// fmt.Println(pw)
 }
