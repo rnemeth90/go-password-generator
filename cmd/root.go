@@ -35,8 +35,8 @@ var rootCmd = &cobra.Command{
 }
 
 var generateMemorablePasswordCmd = &cobra.Command{
-	Use:     "generateMemorablePassword",
-	Aliases: []string{"memorable"},
+	Use:     "memorable",
+	Aliases: []string{"mem"},
 	Short:   "Generates a memorable password",
 	// Args:    cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
@@ -49,10 +49,10 @@ var generateMemorablePasswordCmd = &cobra.Command{
 }
 
 var generateRandomCharPasswordCmd = &cobra.Command{
-	Use:     "generateMemorablePassword",
-	Aliases: []string{"random"},
+	Use:     "random",
+	Aliases: []string{"rand"},
 	Short:   "Generates a memorable password",
-	// Args:    cobra.ExactArgs(1),
+	Args:    cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		p, e := generator.GenerateRandomString(16)
 		if e != nil {
