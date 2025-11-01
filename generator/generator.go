@@ -55,7 +55,6 @@ func generateBytes(input int64) ([]byte, error) {
 }
 
 func getRandomWord() string {
-
 	var lines []string
 	// set our log prefix
 	log.SetPrefix("getRandomWord(): ")
